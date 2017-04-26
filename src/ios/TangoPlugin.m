@@ -14,7 +14,7 @@
     [[UIApplication sharedApplication] unregisterForRemoteNotifications];
 }
 
-- (void)registerTango:(CDVInvokedUrlCommand *)command {
+- (void)initializeTango:(CDVInvokedUrlCommand *)command {
     [self.commandDelegate runInBackground:^{
         NSString* apiKey = [command.arguments objectAtIndex:0];
         [Tango initializeWithTango:apiKey];

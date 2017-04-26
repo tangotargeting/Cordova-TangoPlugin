@@ -8,6 +8,6 @@ exports.addSegment = function (arg0, success, error) {
 	exec(success, error, "TangoPlugin", "addSegment", [arg0]);
 };
 
-exports.registerTango = function(arg0, success, error) {
-	exec(success, error, "TangoPlugin", "registerTango", [arg0]);
+exports.initializeTango = function(arg0, success, error) {
+	exec(success, error, "TangoPlugin", "initializeTango", [arg0]);
 };
