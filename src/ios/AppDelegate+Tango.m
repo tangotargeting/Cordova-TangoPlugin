@@ -6,6 +6,10 @@
 #import <objc/runtime.h>
 #import <Tango/Tango.h>
 #import "TangoPlugin.h"
+#import <UserNotifications/UserNotifications.h>
+
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
 
 @implementation AppDelegate (Tango)
 
@@ -14,7 +18,6 @@
 + (void)load
 {
     Method original, swizzled;
-    
     original = class_getInstanceMethod(self, @selector(init));
     swizzled = class_getInstanceMethod(self, @selector(swizzled_init));
     method_exchangeImplementations(original, swizzled);
@@ -24,6 +27,10 @@
 {
     // This actually calls the original init method over in AppDelegate. Equivilent to calling super
     // on an overrided method, this is not recursive.
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
+        [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
+    }
+    
     return [self swizzled_init];
 }
 
@@ -49,6 +56,16 @@
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     [Tango application:application didReceive:notification];
+}
+
+#pragma mark UNUserNotificationCenterDelegate
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
+    [Tango userNotificationCenter:center willPresent:notification withCompletionHandler:completionHandler];
+}
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+    [Tango userNotificationCenter:center didReceive:response withCompletionHandler:completionHandler];
 }
 
 @end

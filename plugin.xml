@@ -15,7 +15,7 @@
   </config-file>
     <pods-config ios-min-version="9.0" use-frameworks="true">
     </pods-config>
-        <pod name="Tango" path="/Users/raul/Documents/TangoFrameworks/Tango/"/>
+        <pod name="Tango"/>
  	<source-file src="src/ios/AppDelegate+Tango.m" />
     <source-file src="src/ios/TangoPlugin.m" />
     <header-file src="src/ios/AppDelegate+Tango.h" />

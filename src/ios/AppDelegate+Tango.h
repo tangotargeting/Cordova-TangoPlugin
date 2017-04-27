@@ -3,6 +3,7 @@
 //
 
 #import "AppDelegate.h"
+#import <UserNotifications/UserNotifications.h>
 
-@interface AppDelegate (Tango)
+@interface AppDelegate (Tango) <UNUserNotificationCenterDelegate>
 @end
