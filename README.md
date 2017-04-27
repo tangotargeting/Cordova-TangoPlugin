@@ -10,8 +10,14 @@ For more information please see [the website][1].
 ```
 cordova plugin add https://github.com/tangotargeting/Cordova-TangoPlugin.git
 ```
-2. After adding the plugin go to `"yourCordovaProject"/platforms/ios` and open the workspace with Xcode. 
-3. Our Tango framework is developed in swift and you need to allow using embedded swift standard libraries. For that select your Cordova iOS project from Xcode Project Navigator than select Build Settings and search for `Always Embed Swift Standard Libraries` and set it to `YES`.
+2. If you don't have already the iOS platform added, you should add it with:
+```
+cordova platform add ios
+```
+3. After adding the plugin go to `"yourCordovaProject"/platforms/ios` and open the `.workspace` with Xcode.
+4. Our Tango framework is developed in swift and you need to allow using embedded swift standard libraries. For that select your Cordova iOS project from Xcode Project Navigator than select Build Settings and search for `Always Embed Swift Standard Libraries` and set it to `YES`.
+5. You also need to code signing your app, for that please use [this guide](https://developer.apple.com/support/code-signing/).
+6. Build and run.
 
 ### iOS 10 Rich Notifications
 
@@ -27,6 +33,8 @@ use_frameworks!
 pod 'TangoRichNotification', '~> 1.0.1'
 end
 ```
+
+TangoRichNotification is developed for iOS 10.0 or higher, so you should update also the `platform :ios, '9.0'` to `10.0`.
 After filling Podfile save it and run the following command in the Terminal:
 
 ```
@@ -75,13 +83,14 @@ After that you should fill the form with your app data:
 
 # How to use
 
+**1. Tango framework**
+
 Now the plugin is added but you don't use it yet. For start using it you should do this: 
 *Go to `www/js/index.js` and in your `onDeviceReady` method, call the following method for initializing Tango:* 
 ``` 
 tangoplugin.initializeTango('your-tango-api-key');
 ```
-
-**Thats it. You can use Tango now. Build and run :).**
+*If you are going to use a location campaign you need to add in your plist this key `NSLocationAlwaysUsageDescription`.*
 
 # Additional methos
 
@@ -94,6 +103,31 @@ tangoplugin.addSegment('your-segment-name');
 ``` 
 tangoplugin.trigger('your-custom-trigger-name');
 ```
+
+**2. TangoRichNotification framework**
+
+*1. After creating the Notification service extension, go to NotificationService class:*
+``` objc
+import TangoRichNotification
+```
+
+*2. In `didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent)` method remove:*
+``` objc
+if let bestAttemptContent = bestAttemptContent {
+	// Modify the notification content here...
+	bestAttemptContent.title = "\(bestAttemptContent.title) [modified]"
+	contentHandler(bestAttemptContent)
+}
+```
+and add 
+``` objc
+if let bestAttemptContent = bestAttemptContent {
+            TangoRichNotification.setupRichContent(content: bestAttemptContent,  apiKey: "your-api-key", completionHandler: { (content) in contentHandler(content)})
+}
+```
+
+**3. Build and run :)**
+
 ## License
 
 Copyright 2017 Tango Targeting, Inc.
