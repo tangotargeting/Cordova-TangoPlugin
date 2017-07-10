@@ -1,13 +1,27 @@
 var exec = require('cordova/exec');
 
-exports.trigger = function(arg0, success, error) {
-    exec(success, error, "TangoPlugin", "trigger", [arg0]);
-};
+var PLUGIN_NAME = 'TangoPlugin';
 
-exports.addSegment = function (arg0, success, error) {
-	exec(success, error, "TangoPlugin", "addSegment", [arg0]);
-};
+var TangoPlugin = {
+	initialize: function (apiKey, successCallback, errorCallback){
+		exec(successCallback, errorCallback, PLUGIN_NAME, 'initialize', [apiKey]);
+	},
 
-exports.initializeTango = function(arg0, success, error) {
-	exec(success, error, "TangoPlugin", "initializeTango", [arg0]);
-};
+	trigger: 	function (triggerPhrase, successCallback, errorCallback){
+		exec(successCallback, errorCallback, PLUGIN_NAME, 'trigger', [triggerPhrase]);
+	},
+
+	addSegments: function (segment, successCallback, errorCallback) {
+		exec(successCallback, errorCallback, PLUGIN_NAME, "addSegments", [segment]);
+	},
+
+	removeSegments: function (segment, successCallback, errorCallback){
+		exec(successCallback, errorCallback, PLUGIN_NAME, "removeSegments", [segment]);
+	},
+
+	getSegments: function (successCallback, errorCallback){
+		exec(successCallback, errorCallback, PLUGIN_NAME, "getSegments", []);
+	},
+}
+
+module.exports = TangoPlugin;
