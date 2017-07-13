@@ -24,7 +24,7 @@ cordova platform add ios
 
 Tango Targeting SDK has support for iOS 10 notifications attachments which enables you to add images and animated GIFs in a notification. For using this functionality you will need to create a [notification service extension](https://developer.apple.com/reference/usernotifications/unnotificationserviceextension/). 
 
-Create a new iOS target in Xcode (File -> New -> Target) and select the Notification Service Extension type
+Create a new iOS target in *Xcode (File -> New -> Target)* and select the `Notification Service Extension` type
 ![NotificationServiceExtension image](https://github.com/tangotargeting/tango-ios/blob/master/Resources/NotificationServiceExtension.png?raw=true)
 
 Go to `"yourCordovaProject"/platforms/ios` and open `Podfile`, then add the `TangoRichNotification` framework to this target, by typing following lines:
@@ -44,13 +44,13 @@ $ pod install
 
 iOS 10 Notification Framework installed.
 
-### Add capabilities
+### Push Notifications Capabilities
 
-For using push notifications you should add the following capabilities. Go to Xcode select the target’s Capabilities pane and enable push notifications: 
+In Xcode click on your project root. Then under *Targets* select your project then choose the *Capabilities* pane. Now enable **Push Notifications**: 
 
 ![PushNotificatioCapabilities image](https://github.com/tangotargeting/tango-ios/blob/master/Resources/PushNotifications.png?raw=true)
 
-You should also enable Backround Modes an Remote notifications capabilities: 
+Enable **Background Modes**, then check **Remote notifications** as presented in the image below.
 
 ![BackgroundModes image](https://github.com/tangotargeting/tango-ios/blob/master/Resources/BackgroundModes.png?raw=true)
 
