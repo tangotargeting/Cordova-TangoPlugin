@@ -4,7 +4,7 @@ Communication chanel for your existing customers
 
 For more information please see [our website][1].
 
-## Installation
+## Installation (iOS)
 
 1.  Open a terminal window, navigate to your Cordova project and type the following command:
 ```
@@ -82,6 +82,10 @@ After that you should fill the form with your app data:
 
 ![AddCertificate image](https://github.com/tangotargeting/tango-ios/blob/master/Resources/Add%20Certificate.png?raw=true)
 
+## Installation (Android)
+
+Tango Targeting SDK self initializez on Android. There are two steps you need to take in order to 
+
 # How to use
 
 **1. Tango framework**
@@ -93,7 +97,7 @@ tangoplugin.initialize('your-tango-api-key');
 ```
 *If you are going to use a location campaign you need to add in your plist this key `NSLocationAlwaysUsageDescription`.*
 
-# Additional methos
+# Additional methods
 
 *There are also 2 methos in our plugin that you can use whenever you want:* 
 1. If you want to register a new segment you will use:
@@ -112,7 +116,7 @@ tangoplugin.trigger('your-custom-trigger-name');
 import TangoRichNotification
 ```
 
-*2. In `didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent)` method remove:*
+*2. In `didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent)` method replace:*
 ``` objc
 if let bestAttemptContent = bestAttemptContent {
 	// Modify the notification content here...
@@ -120,7 +124,9 @@ if let bestAttemptContent = bestAttemptContent {
 	contentHandler(bestAttemptContent)
 }
 ```
-and add 
+
+with:
+
 ``` objc
 if let bestAttemptContent = bestAttemptContent {
             TangoRichNotification.setupRichContent(content: bestAttemptContent,  apiKey: "your-api-key", completionHandler: { (content) in contentHandler(content)})
