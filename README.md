@@ -11,7 +11,7 @@ For more information please see [our website][1].
 
 ## Usage
 
-#### Prepare the SDK
+### Prepare the SDK
 
 In order to use it correctly, Tango Targeting SDK should be initialized as soon as possible when your Cordova App launches. In your project's ***index.js*** add the following line at the top of your `onDeviceReady` method.
 
@@ -23,7 +23,7 @@ This will register the device on TangoTargeting and prepare it for consuming cam
 
 **Note:** Explicitly initializing Tango is only needed for iOS. On Android the Sdk auto-initializez, provided it can find the API Key in the manifest file. See [Android Installation](https://github.com/tangotargeting/Cordova-TangoPlugin/blob/master/INSTALLATION-Android.md) 
 
-#### Trigger an Automated Campaign
+### Trigger an Automated Campaign
 
 Automated campaigns can be triggered using the following method call:
 
@@ -33,7 +33,7 @@ window.TangoPlugin.trigger('your-automated-campaign-trigger');
 
 You can find `your-automated-campaign-trigger` by clicking on the campaign in you Tango Console.
 
-#### Add segments
+### Add segments
 
 You can add segments to a device to allow it to widen the pool of campaigns it can receive with the following:
 
