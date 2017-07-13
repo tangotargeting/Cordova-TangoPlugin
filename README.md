@@ -29,7 +29,7 @@ window.TangoPlugin.initialize('your-tango-api-key');
 
 This will register the device on TangoTargeting and prepare it for consuming campaigns.
 
-**Note:** Explicitly initializing Tango is only needed for iOS. On Android the Sdk auto-initializez, provided it can find the API Key in the manifest file. See [Android Installation](https://github.com/tangotargeting/Cordova-TangoPlugin/blob/master/INSTALLATION-Android.md) 
+**Note:** Explicitly initializing Tango is only needed for iOS. On Android the SDK auto-initializez, provided it can find the API Key in the manifest file. See [Android Installation](https://github.com/tangotargeting/Cordova-TangoPlugin/blob/master/INSTALLATION-Android.md) 
 
 ### Trigger an Automated Campaign
 
