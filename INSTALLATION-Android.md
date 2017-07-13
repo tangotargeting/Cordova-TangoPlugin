@@ -19,18 +19,14 @@ Tango Targeting SDK auto-initializez on Android. However, it needs to read your 
 </platform>
 ```
 
-### Debugging
+### Enable Tango logs
 
 If you want to see Tango logs add a `tango_debug_mode` `meta-data` set to `true` to your android platform.
 
 ```xml
-<platform name="android">
-  <!-- other configurations above -->
-  <config-file parent="./application" target="AndroidManifest.xml">
-    <meta-data android:name="tango_debug_mode" android:value="true" />
-    <meta-data android:name="tango_api_key" android:value="your-tango-sdk-key" />
-  </config-file>
-  <!-- other configurations below -->
-</platform>
+<meta-data android:name="tango_debug_mode" android:value="true" />
 ```
 
+### Enable Push Notifications
+
+Tango Targeting uses FCM for push notifications. 
