@@ -22,22 +22,21 @@ cordova platform add ios
 
 ### iOS 10 Rich Notifications
 
-The library has support for iOS 10 notifications attachments, you can add images and animated GIFs in a notification. 
-For using this functionality you will need to create a [notification service extension](https://developer.apple.com/reference/usernotifications/unnotificationserviceextension/). 
+Tango Targeting SDK has support for iOS 10 notifications attachments which enables you to add images and animated GIFs in a notification. For using this functionality you will need to create a [notification service extension](https://developer.apple.com/reference/usernotifications/unnotificationserviceextension/). 
 
 Create a new iOS target in Xcode (File -> New -> Target) and select the Notification Service Extension type
 ![NotificationServiceExtension image](https://github.com/tangotargeting/tango-ios/blob/master/Resources/NotificationServiceExtension.png?raw=true)
 
-Go to `"yourCordovaProject"/platforms/ios` and open `Podfile` and add the new target for notification extension that you created in previous step. Add TangoRichNotification framework to this target, by typing following lines:
+Go to `"yourCordovaProject"/platforms/ios` and open `Podfile`, then add the `TangoRichNotification` framework to this target, by typing following lines:
 ```
 target 'Your-NotificationServiceExtesion-Target-Name' do
-use_frameworks!
-pod 'TangoRichNotification', '~> 1.0.1'
+	use_frameworks!
+	pod 'TangoRichNotification', '~> 1.0.1'
 end
 ```
 
-TangoRichNotification is developed for iOS 10.0 or higher, so you should update also the `platform :ios, '9.0'` to `10.0`.
-After filling Podfile save it and run the following command in the Terminal:
+TangoRichNotification is developed for iOS 10.0 or higher, this means you should also update the `platform :ios, '9.0'` to `10.0`.
+After changing and saving the Podfile  run the following command in the Terminal:
 
 ```
 $ pod install
