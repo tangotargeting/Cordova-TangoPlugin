@@ -1,18 +1,20 @@
+# Cordova: Tango Targeting Plugin
+
+Smart engagement with your customers.
+
+For more information please see [our website][1].
+
 ## Installation (iOS)
 
-1.  Open a terminal window, navigate to your Cordova project and type the following command:
-```
-cordova plugin add https://github.com/tangotargeting/Cordova-TangoPlugin.git
-```
-2.  If you don't have the iOS platform in your project, use the following line to add it:
+1.  If you don't have the iOS platform in your project, use the following line to add it:
 ```
 cordova platform add ios
 ```
-3.  Navigate to `yourCordovaProject/platforms/ios` and open the `.xcworkspace` file with Xcode.
-4.  Select **yourCordovaProject** from Xcode Project Navigator. Then, select *Build Settings*, 
+2.  Navigate to `yourCordovaProject/platforms/ios` and open the `.xcworkspace` file with Xcode.
+3.  Select **yourCordovaProject** from Xcode Project Navigator. Then, select *Build Settings*, 
     search for **Always Embed Swift Standard Libraries** and set it to **YES**.
-5.  You also need to code sign your app, for that please follow [this guide](https://developer.apple.com/support/code-signing/).
-6.  Build and run.
+4.  You also need to code sign your app, for that please follow [this guide](https://developer.apple.com/support/code-signing/).
+5.  Build and run.
 
 ### iOS 10 Rich Notifications
 
@@ -101,3 +103,5 @@ if let bestAttemptContent = bestAttemptContent {
 ```
 
 **3. Build and run.**
+
+*If you are going to use a location campaign you need to add in your plist this key `NSLocationAlwaysUsageDescription`.*
