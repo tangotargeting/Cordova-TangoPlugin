@@ -4,6 +4,14 @@ Smart engagement with your customers.
 
 For more information please see [our website][1].
 
+## Download
+
+Open a terminal window, navigate to your Cordova project and type the following command:
+
+```
+cordova plugin add https://github.com/tangotargeting/Cordova-TangoPlugin.git
+```
+
 ## Installation
 
 - [iOS](https://github.com/tangotargeting/Cordova-TangoPlugin/blob/master/INSTALLATION-iOS.md)
