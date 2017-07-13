@@ -35,7 +35,7 @@ You can find `your-automated-campaign-trigger` by clicking on the campaign in yo
 
 ### Add segments
 
-You can add segments to a device to allow it to widen the pool of campaigns it can receive with the following:
+You can add segments to a device to allow it to widen the pool of campaigns it can receive with the following method:
 
 ``` 
 tangoplugin.addSegments(["first-segment", "second-segment"]);
