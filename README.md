@@ -1,4 +1,4 @@
-# Tango targeting
+# Cordova: Tango Targeting Plugin
 
 Smart engagement with your customers.
 
