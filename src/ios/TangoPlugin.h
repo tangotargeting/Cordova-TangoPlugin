@@ -5,8 +5,7 @@
 @interface TangoPlugin : CDVPlugin
 
 - (void)initializeTango:(CDVInvokedUrlCommand*)command;
-- (void)addSegment:(CDVInvokedUrlCommand *)command;
+- (void)addSegments:(CDVInvokedUrlCommand *)command;
 - (void)trigger:(CDVInvokedUrlCommand *)command;
-- (void)unregisterTango:(CDVInvokedUrlCommand*)command;
 
 @end

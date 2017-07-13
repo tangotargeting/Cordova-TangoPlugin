@@ -2,33 +2,35 @@
 
 Communication chanel for your existing customers
 
-For more information please see [the website][1].
+For more information please see [our website][1].
 
 ## Installation
 
-1. Open a terminal window, navigate to your cordova project and type the following command:
+1.  Open a terminal window, navigate to your Cordova project and type the following command:
 ```
 cordova plugin add https://github.com/tangotargeting/Cordova-TangoPlugin.git
 ```
-2. If you don't have already the iOS platform added, you should add it with:
+2.  If you don't have the iOS platform in your project, use the following line to add it:
 ```
 cordova platform add ios
 ```
-3. After adding the plugin go to `"yourCordovaProject"/platforms/ios` and open the `.workspace` with Xcode.
-4. Our Tango framework is developed in swift and you need to allow using embedded swift standard libraries. For that select your Cordova iOS project from Xcode Project Navigator than select Build Settings and search for `Always Embed Swift Standard Libraries` and set it to `YES`.
-5. You also need to code signing your app, for that please use [this guide](https://developer.apple.com/support/code-signing/).
-6. Build and run.
+3.  Navigate to `yourCordovaProject/platforms/ios` and open the `.xcworkspace` file with Xcode.
+4.  Select **yourCordovaProject** from Xcode Project Navigator. Then, select *Build Settings*, 
+    search for **Always Embed Swift Standard Libraries** and set it to **YES**.
+5.  You also need to code sign your app, for that please follow [this guide](https://developer.apple.com/support/code-signing/).
+6.  Build and run.
 
 ### iOS 10 Rich Notifications
 
-The library has support for iOS 10 notifications attachments, you can add images, animated gifs in a notification. For using this functionality you will need to create a  [notification service extension](https://developer.apple.com/reference/usernotifications/unnotificationserviceextension/). 
+The library has support for iOS 10 notifications attachments, you can add images and animated GIFs in a notification. 
+For using this functionality you will need to create a [notification service extension](https://developer.apple.com/reference/usernotifications/unnotificationserviceextension/). 
 
 Create a new iOS target in Xcode (File -> New -> Target) and select the Notification Service Extension type
 ![NotificationServiceExtension image](https://github.com/tangotargeting/tango-ios/blob/master/Resources/NotificationServiceExtension.png?raw=true)
 
 Go to `"yourCordovaProject"/platforms/ios` and open `Podfile` and add the new target for notification extension that you created in previous step. Add TangoRichNotification framework to this target, by typing following lines:
 ```
-target 'NotificationServiceExtesion-Target-Name' do
+target 'Your-NotificationServiceExtesion-Target-Name' do
 use_frameworks!
 pod 'TangoRichNotification', '~> 1.0.1'
 end
@@ -88,7 +90,7 @@ After that you should fill the form with your app data:
 Now the plugin is added but you don't use it yet. For start using it you should do this: 
 *Go to `www/js/index.js` and in your `onDeviceReady` method, call the following method for initializing Tango:* 
 ``` 
-tangoplugin.initializeTango('your-tango-api-key');
+tangoplugin.initialize('your-tango-api-key');
 ```
 *If you are going to use a location campaign you need to add in your plist this key `NSLocationAlwaysUsageDescription`.*
 
@@ -130,6 +132,21 @@ if let bestAttemptContent = bestAttemptContent {
 
 ## License
 
+```
 Copyright 2017 Tango Targeting, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
+
 
 [1]: http://tangotargeting.com

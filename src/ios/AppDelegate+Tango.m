@@ -15,6 +15,7 @@
 
 // its dangerous to override a method from within a category.
 // Instead we will use method swizzling. we set this up in the load call.
+
 + (void)load
 {
     Method original, swizzled;
@@ -55,6 +56,10 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    [Tango application:application didReceive:notification];
+}
+
+- (void)application:(UIApplication *)application didReceiveNotification:(UILocalNotification *)notification {
     [Tango application:application didReceive:notification];
 }
 

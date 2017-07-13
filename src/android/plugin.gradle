@@ -1,0 +1,16 @@
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.tangotargeting.com/repository/maven-public' }
+}
+
+dependencies {
+	compile 'com.tangotargeting:tango:2.1.8'
+}
+
+
+task copyGoogleServices(type: Copy) {
+	from '../../google-services.json'
+	into '.'
+}
+
+tasks.copyGoogleServices.execute();

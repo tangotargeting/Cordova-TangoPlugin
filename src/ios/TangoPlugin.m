@@ -3,31 +3,37 @@
 
 @implementation TangoPlugin
 
-- (void)trigger:(CDVInvokedUrlCommand *)command {
-    [self.commandDelegate runInBackground:^{
-        NSString* phrase = [command.arguments objectAtIndex:0];
-        [Tango triggerWithKey:phrase];
-    }];
-}
-
-- (void)unregisterTango:(CDVInvokedUrlCommand*)command {
-    [[UIApplication sharedApplication] unregisterForRemoteNotifications];
-}
-
 - (void)initializeTango:(CDVInvokedUrlCommand *)command {
+    NSLog(@"Plugin initialize method called!");
     [self.commandDelegate runInBackground:^{
         NSString* apiKey = [command.arguments objectAtIndex:0];
+        NSLog(@"Plugin initialize method called with apiKey: %@.", apiKey);
         [Tango initializeWithTango:apiKey];
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"A mers!"];    
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }];
 }
 
-- (void)addSegment:(CDVInvokedUrlCommand *)command {
+- (void)addSegments:(CDVInvokedUrlCommand *)command {
+    NSLog(@"Plugin addSegments method called!");
     [self.commandDelegate runInBackground:^{
-        NSMutableArray<NSString *> *segments = [[NSMutableArray alloc] initWithCapacity: command.arguments.count];
-        for (NSString *segment in command.arguments) {
-            [segments addObject:segment];
-        }
+        NSArray<NSString *> *segments = (NSArray<NSString *> *)command.arguments.firstObject;
+        
+//        NSMutableArray<NSString *> *segments = [[NSMutableArray alloc] initWithCapacity: command.arguments.count];
+//        for (NSString *segment in command.arguments) {
+//            [segments addObject:segment];
+//        }
         [Tango registerSegmentsWithSegments:segments];
+    }];
+}
+
+- (void)trigger:(CDVInvokedUrlCommand *)command {
+    NSLog(@"Plugin trigger method called!");
+
+    [self.commandDelegate runInBackground:^{
+        NSString* phrase = [command.arguments objectAtIndex:0];
+        NSLog(@"Plugin trigger method called wth %@", phrase);
+        [Tango triggerWithKey:phrase];
     }];
 }
 

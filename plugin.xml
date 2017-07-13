@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin
-        id="cordova-tango-plugin"
+        id="cordova-plugin-tango"
         version="0.0.1"
         xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android">
 
     <name>Tango Targeting Plugin</name>
     <description>A Cordova plugin for Tango Targeting SDK</description>
-    <license>...</license>
+    <license>Apache License, Version 2.0</license>
     <keywords>tango,plugin,cordova</keywords>
 
     <js-module name="TangoPlugin" src="www/TangoPlugin.js">
@@ -32,7 +32,7 @@
 
         <source-file src="src/android/com/tango/TangoPlugin.java" target-dir="src/com/tango"/>
 
-        <framework src="com.tangotargeting:tango:2.1.1"/>
+        <framework src="src/android/plugin.gradle" custom="true" type="gradleReference"/>
     </platform>
 
     <!-- iOS -->

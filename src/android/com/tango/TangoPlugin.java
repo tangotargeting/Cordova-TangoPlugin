@@ -11,9 +11,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Set;
+import android.util.Log;
 
-import com.tango.Tango;
+import java.util.Set;
+import java.util.HashSet;
+
+import com.tango.core.Tango;
 import com.tango.custom.trigger.TangoAutomation;
 
 public class TangoPlugin extends CordovaPlugin {
@@ -25,25 +28,53 @@ public class TangoPlugin extends CordovaPlugin {
 	}
 
 	public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException{
-		if("initialize".equals(action)){
-			Tango.initialize((Application)(webView.getContext().getApplicationContext()));
+		Log.d(TAG, "TangoPlugin action => " + action);
+
+		if("initializeTango".equals(action)){
+			//Tango.init((Application)(webView.getContext().getApplicationContext()));
+			// Tango is self initialized on Android
+			return true;
 		}else if("trigger".equals(action)){
 			String triggerPhrase = args.getString(0);
+			Log.d(TAG, "TangoPlugin trigger => " + triggerPhrase);
+			
 			int result = TangoAutomation.trigger(triggerPhrase);
 
 			if(result == TangoAutomation.CAMPAIGN_TRIGGERED){
 				callbackContext.success("Campaign Triggered Successfully!");
+				return true;
 			}else{
 				callbackContext.error("Campaign Failed to trigger with code: " + result);
+				return false;
 			}
-		}else if("addSegment".equals(action)){
-			//Set<String> segments = new Set<>();
-			JSONArray[] tags = args.getJSONArray(0);
-			
-		}else if("removeSegment".equals(action)){
+		}else if("addSegments".equals(action)){
+			Set<String> tags;
+			JSONArray jsonTags = args.getJSONArray(0);
 
-		}else if("getSegments".equals(action)){
+			try{
+				tags = toStringSet(jsonTags);
+			}catch(JSONException e){
+				callbackContext.error(e.getMessage());
+				return false;
+			}
 
+			Tango.addTags(tags);
+
+			callbackContext.success(jsonTags);
 		}
+
+		return true;
 	}
+
+	private Set<String> toStringSet(JSONArray jsonArray) throws JSONException{
+        Set<String> tags = new HashSet<String>();
+        try {
+            for (int i = 0; i < jsonArray.length(); i++) {
+                tags.add(jsonArray.getString(i));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return tags;
+    }
 }
