@@ -6,7 +6,7 @@ For more information please see [our website][1].
 
 ## Installation (Android)
 
-### Add the SDK Key
+### 1. Add the SDK Key
 Tango Targeting SDK auto-initializez on Android. However, it needs to read your Tango SDK Key from AndroidManifest.xml file. In your `config.xml` add the SDK Key to the android platform in the following manner:
 
 ```xml
@@ -19,7 +19,7 @@ Tango Targeting SDK auto-initializez on Android. However, it needs to read your 
 </platform>
 ```
 
-### Enable Tango logs
+### 2. Enable Tango logs
 
 If you want to see Tango logs add a `tango_debug_mode` `meta-data` set to `true` to your android platform.
 
@@ -27,7 +27,7 @@ If you want to see Tango logs add a `tango_debug_mode` `meta-data` set to `true`
 <meta-data android:name="tango_debug_mode" android:value="true" />
 ```
 
-### Enable Push Notifications
+### 3. Enable Push Notifications
 
 Tango Targeting uses FCM for push notifications. For this you will need a [Firebase](https://firebase.google.com/) account. After successfully creating the account follow this steps.
 
@@ -52,6 +52,23 @@ Hit the **Update** button.
 
 **Note:** If you don't see your app yet, click **New app** to add it. Use the same package name you used for FCM.
 
-### Permissions
+### 4. Permissions
+
+Tango SDK relies on the following permissions:
+
+```xml
+<!-- Runtime permissions-->
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+<!--Normal permissions-->
+<uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+```
+
+You do not need to add these permissions to your Android Manifest file. However, if your ` targetSdkVersion` is higher than **22** you will need to request the `android.permission.ACCESS_FINE_LOCATION` and `android.permission.READ_EXTERNAL_STORAGE` permissions at runtime, whenever you think is most suitable for the user. [Here][4] is how to request a persmission at runtime.
+
+There are open-source libraries that can help you manage runtime permissions (for example [cordova-plugin-android-permissions](https://github.com/NeoLSN/cordova-plugin-android-permissions))
 
 
