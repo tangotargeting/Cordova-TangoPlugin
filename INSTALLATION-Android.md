@@ -76,9 +76,29 @@ At this point you should be able to use Tango.
 
 ## Troubleshooting
 
-### Firebase error/crash
+### 1. Firebase error/crash
 If you get an error from firebase saying *default FirebaseApp is not initialized in this process* and tells you too initialize it with `FirebaseApp.initializeApp(context)`, please make sure the *google-services.json* file is in the root folder of your Cordova project.
 
-### Changing the android package name
+### 2. Changing the android package name
 If you decide to change the name of your android package, you should update the application in your Firebase Console. 
 
+## License
+
+```
+Copyright 2017 Tango Targeting, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
+
+
+[1]: http://tangotargeting.com
