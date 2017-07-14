@@ -68,8 +68,7 @@ This command will export the certificate in a .p12 file with a password.
 ### Add Certificate to Tango
 After generating the Push Notification certificate go [here](https://app.tangotargeting.com/app) and create a new iOS app:
 
-![CreateiOSApp image](https://github.com/tangotargeting/tango-ios/blob/master/Resources/Create%20iOS%20App.png?raw=true
-)
+![CreateiOSApp image](https://github.com/tangotargeting/tango-ios/blob/master/Resources/Create%20iOS%20App.png?raw=true)
 
 After that you should fill the form with your app data:
 - insert app bundle id
@@ -78,14 +77,19 @@ After that you should fill the form with your app data:
 
 ![AddCertificate image](https://github.com/tangotargeting/tango-ios/blob/master/Resources/Add%20Certificate.png?raw=true)ios goes here
 
-**TangoRichNotification framework**
+### TangoRichNotification framework
 
-*1. After creating the Notification service extension, go to NotificationService class:*
+A few changes need to be made to `NotificationsService.swift` file.
+
+#### 1. Import `TangoRichNotification`
+After creating the Notification service extension, go to `NotificationService.swift` and add the following import:
+
 ``` objc
 import TangoRichNotification
 ```
 
-*2. In `didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent)` method replace:*
+#### 2. Change `didReceive` method
+In `didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent)` method replace:
 ``` objc
 if let bestAttemptContent = bestAttemptContent {
 	// Modify the notification content here...
@@ -102,6 +106,28 @@ if let bestAttemptContent = bestAttemptContent {
 }
 ```
 
-**3. Build and run.**
+#### 3. Build and run
 
-*If you are going to use a location campaign you need to add in your plist this key `NSLocationAlwaysUsageDescription`.*
+## Location campaigns
+
+If you are going to use a location campaign you need to add in your plist the following key `NSLocationAlwaysUsageDescription`.
+
+## License
+
+```
+Copyright 2017 Tango Targeting, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
+
+[1]: http://tangotargeting.com
