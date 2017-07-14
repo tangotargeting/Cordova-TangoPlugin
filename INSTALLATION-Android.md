@@ -29,11 +29,11 @@ If you want to see Tango logs add a `tango_debug_mode` `meta-data` set to `true`
 
 ### 3. Enable Push Notifications
 
-Tango Targeting uses FCM for push notifications. For this you will need a [Firebase](https://firebase.google.com/) account. After successfully creating the account follow this steps.
+Tango Targeting uses FCM for push notifications. For this you will need a [Firebase](https://firebase.google.com/) account. After successfully creating the account follow these steps.
 
 1. Go to [Firebase Console](https://console.firebase.google.com/);
 2. Add a new project;
-3. When the project is created, click on *Add Firebase to your Android app*. A popup window will open with 3 steps;
+3. When the project is created, click on *Add Firebase to your Android app*. A pop-up window will appear with 3 steps;
 4. In the first step your android package name is required. This can be found in your project's *config.xml* file. Look for `<widget android-packageName="com.yourapp.android" />` if `android-packageName` is missing, use the `id` attribute;
 5. Click **Register app**. It will take you to step 2;
 6. Download the file *google-services.json* and copy it in the root folder of your cordova project;
@@ -71,4 +71,14 @@ You do not need to add these permissions to your Android Manifest file. However,
 
 There are open-source libraries that can help you manage runtime permissions (for example [cordova-plugin-android-permissions](https://github.com/NeoLSN/cordova-plugin-android-permissions))
 
+## You are ready to go!
+At this point you should be able to use Tango.
+
+## Troubleshooting
+
+### Firebase error/crash
+If you get an error from firebase saying *default FirebaseApp is not initialized in this process* and tells you too initialize it with `FirebaseApp.initializeApp(context)`, please make sure the *google-services.json* file is in the root folder of your Cordova project.
+
+### Changing the android package name
+If you decide to change the name of your android package, you should update the application in your Firebase Console. 
 
