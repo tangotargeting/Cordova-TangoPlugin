@@ -55,9 +55,9 @@ import TangoRichNotification
 In `didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent)` method replace:
 ``` objc
 if let bestAttemptContent = bestAttemptContent {
-	// Modify the notification content here...
-	bestAttemptContent.title = "\(bestAttemptContent.title) [modified]"
-	contentHandler(bestAttemptContent)
+    // Modify the notification content here...
+    bestAttemptContent.title = "\(bestAttemptContent.title) [modified]"
+    contentHandler(bestAttemptContent)
 }
 ```
 
@@ -65,7 +65,7 @@ with:
 
 ``` objc
 if let bestAttemptContent = bestAttemptContent {
-            TangoRichNotification.setupRichContent(content: bestAttemptContent,  apiKey: "your-api-key", completionHandler: { (content) in contentHandler(content)})
+    TangoRichNotification.setupRichContent(content: bestAttemptContent,  apiKey: "your-api-key", completionHandler: { (content) in contentHandler(content)})
 }
 ```
 
