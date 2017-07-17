@@ -40,6 +40,37 @@ $ pod install
 
 iOS 10 Notification Framework installed.
 
+### TangoRichNotification framework
+
+A few changes need to be made to `NotificationsService.swift` file.
+
+#### 1. Import `TangoRichNotification`
+After creating the Notification service extension, go to `NotificationService.swift` and add the following import:
+
+``` objc
+import TangoRichNotification
+```
+
+#### 2. Change `didReceive` method
+In `didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent)` method replace:
+``` objc
+if let bestAttemptContent = bestAttemptContent {
+	// Modify the notification content here...
+	bestAttemptContent.title = "\(bestAttemptContent.title) [modified]"
+	contentHandler(bestAttemptContent)
+}
+```
+
+with:
+
+``` objc
+if let bestAttemptContent = bestAttemptContent {
+            TangoRichNotification.setupRichContent(content: bestAttemptContent,  apiKey: "your-api-key", completionHandler: { (content) in contentHandler(content)})
+}
+```
+
+#### 3. Build and run
+
 ### Push Notifications Capabilities
 
 In Xcode click on your project root. Then under *Targets* select your project then choose the *Capabilities* pane. Now enable **Push Notifications**: 
@@ -76,38 +107,6 @@ After that you should fill the form with your app data:
 - drag and drop  .p12 file from previous step
 
 ![AddCertificate image](https://github.com/tangotargeting/tango-ios/blob/master/Resources/Add%20Certificate.png?raw=true)ios goes here
-
-### TangoRichNotification framework
-
-A few changes need to be made to `NotificationsService.swift` file.
-
-#### 1. Import `TangoRichNotification`
-After creating the Notification service extension, go to `NotificationService.swift` and add the following import:
-
-``` objc
-import TangoRichNotification
-```
-
-#### 2. Change `didReceive` method
-In `didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent)` method replace:
-``` objc
-if let bestAttemptContent = bestAttemptContent {
-	// Modify the notification content here...
-	bestAttemptContent.title = "\(bestAttemptContent.title) [modified]"
-	contentHandler(bestAttemptContent)
-}
-```
-
-with:
-
-``` objc
-if let bestAttemptContent = bestAttemptContent {
-            TangoRichNotification.setupRichContent(content: bestAttemptContent,  apiKey: "your-api-key", completionHandler: { (content) in contentHandler(content)})
-}
-```
-
-#### 3. Build and run
-
 
 ## Location campaigns
 
