@@ -106,7 +106,7 @@ After that you should fill the form with your app data:
 - insert app name
 - drag and drop  .p12 file from previous step
 
-![AddCertificate image](https://github.com/tangotargeting/tango-ios/blob/master/Resources/Add%20Certificate.png?raw=true)ios goes here
+![AddCertificate image](https://github.com/tangotargeting/tango-ios/blob/master/Resources/Add%20Certificate.png?raw=true)
 
 ## Location campaigns
 
