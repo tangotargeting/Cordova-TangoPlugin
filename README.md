@@ -39,7 +39,7 @@ Automated campaigns can be triggered using the following method call:
 window.TangoPlugin.trigger('your-automated-campaign-trigger');
 ```
 
-You can find `your-automated-campaign-trigger` by clicking on the campaign in you Tango Console.
+You can find `your-automated-campaign-trigger` by clicking on the campaign in your Tango Console.
 
 ### Handle custom actions
 
