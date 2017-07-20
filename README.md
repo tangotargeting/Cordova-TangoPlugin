@@ -69,7 +69,7 @@ window.TangoPlugin.onCustomAction = function(action){
 You can add segments to a device to allow it to widen the pool of campaigns it can receive with the following method:
 
 ``` 
-tangoplugin.addSegments(["first-segment", "second-segment"]);
+window.TangoPlugin.addSegments(["first-segment", "second-segment"]);
 ```
 
 ## License
