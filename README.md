@@ -1,21 +1,34 @@
-# Cordova: Tango Targeting Plugin
+# Cordova: Tango Targeting SDK Plugin
 
 Smart engagement with your customers.
 
 For more information please see [our website][1].
 
 ## Download
+There are three ways you can add *cordova-plugin-tango* to your Cordova project.
 
-Open a terminal window, navigate to your Cordova project and type the following command:
+#### 1. Add dependency to config.xml
+```xml
+<plugin name="cordova-plugin-tango" spec="0.0.1" />
+```
+#### 2. Add it from npmjs
+Navigate to your project and run the following line:
+
+```bash
+cordova plugin add cordova-plugin-tango@0.0.1
+```
+
+#### 3. Add it from Git
+Navigate to your project and run:
 
 ```
-cordova plugin add https://github.com/tangotargeting/Cordova-TangoPlugin.git
+cordova plugin add https://github.com/tangotargeting/cordova-plugin-tango.git
 ```
 
 ## Installation
 
-- [iOS](https://github.com/tangotargeting/Cordova-TangoPlugin/blob/master/INSTALLATION-iOS.md)
-- [Android](https://github.com/tangotargeting/Cordova-TangoPlugin/blob/master/INSTALLATION-Android.md)
+- [iOS](https://github.com/tangotargeting/cordova-plugin-tango/blob/master/INSTALLATION-iOS.md)
+- [Android](https://github.com/tangotargeting/cordova-plugin-tango/blob/master/INSTALLATION-Android.md)
 
 ## Usage
 
@@ -29,7 +42,7 @@ window.TangoPlugin.initialize('your-tango-api-key');
 
 This will register the device on TangoTargeting and prepare it for consuming campaigns.
 
-**Note:** Explicitly initializing Tango is only needed for iOS. On Android the SDK auto-initializez, provided it can find the API Key in the manifest file. See [Android Installation](https://github.com/tangotargeting/Cordova-TangoPlugin/blob/master/INSTALLATION-Android.md) 
+**Note:** Explicitly initializing Tango is only needed for iOS. On Android the SDK auto-initializez, provided it can find the API Key in the manifest file. See [Android Installation](https://github.com/tangotargeting/cordova-plugin-tango/blob/master/INSTALLATION-Android.md) 
 
 ### Trigger an Automated Campaign
 
@@ -56,7 +69,7 @@ window.TangoPlugin.onCustomAction = function(action){
 You can add segments to a device to allow it to widen the pool of campaigns it can receive with the following method:
 
 ``` 
-tangoplugin.addSegments(["first-segment", "second-segment"]);
+window.TangoPlugin.addSegments(["first-segment", "second-segment"]);
 ```
 
 ## License
