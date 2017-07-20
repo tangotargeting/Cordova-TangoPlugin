@@ -9,7 +9,7 @@ For more information please see [our website][1].
 Open a terminal window, navigate to your Cordova project and type the following command:
 
 ```
-cordova plugin add https://github.com/tangotargeting/Cordova-TangoPlugin.git
+cordova plugin add https://github.com/tangotargeting/cordova-plugin-tango.git
 ```
 
 ## Installation
