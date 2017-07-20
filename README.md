@@ -41,6 +41,16 @@ window.TangoPlugin.trigger('your-automated-campaign-trigger');
 
 You can find `your-automated-campaign-trigger` by clicking on the campaign in you Tango Console.
 
+### Handle custom actions
+
+Handling a custom action is as easy as extending `TangoPlugin` with the following method:
+
+```javascript
+window.TangoPlugin.onCustomAction = function(action){
+	// identify the action and do stuff
+};
+```
+
 ### Add segments
 
 You can add segments to a device to allow it to widen the pool of campaigns it can receive with the following method:
