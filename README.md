@@ -9,13 +9,13 @@ There are three ways you can add *cordova-plugin-tango* to your Cordova project.
 
 #### 1. Add dependency to config.xml
 ```xml
-<plugin name="cordova-plugin-tango" spec="0.0.1" />
+<plugin name="cordova-plugin-tango" spec="0.0.2" />
 ```
 #### 2. Add it from npmjs
 Navigate to your project and run the following line:
 
 ```bash
-cordova plugin add cordova-plugin-tango@0.0.1
+cordova plugin add cordova-plugin-tango@0.0.2
 ```
 
 #### 3. Add it from Git
