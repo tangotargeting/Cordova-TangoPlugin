@@ -18,7 +18,7 @@
 
     <!-- Android -->
     <platform name="android">
-        <hook type="before_build" src="scripts/after_prepare.js" />
+        <hook type="before_build" src="scripts/before_build.js" />
         <config-file target="AndroidManifest.xml" parent="/*">
             <!-- Runtime permissions-->
             <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>

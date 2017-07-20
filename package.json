@@ -1,7 +1,7 @@
 {
   "name": "cordova-plugin-tango",
-  "version": "0.0.1",
-  "description": "Tango Targeting SDK Cordova Plugin",
+  "version": "0.0.2",
+  "description": "A Cordova plugin for Tango Targeting SDK",
   "cordova": {
     "id": "cordova-plugin-tango",
     "platforms": [
@@ -11,26 +11,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tangotargeting/cordova-plugin-tango"
+    "url": "git+https://github.com/tangotargeting/cordova-plugin-tango.git"
   },
+  "keywords": [
+    "tangotargeting",
+    "cordova-plugin-tango",
+    "tango",
+    "plugin",
+    "cordova",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Tango Targeting Inc.",
+  "license": "Apache License, Version 2.0",
   "bugs": {
     "url": "https://github.com/tangotargeting/cordova-plugin-tango/issues"
   },
-  "keywords": [
-    "cordova",
-    "tango",
-    "tangotargeting",
-    "cordova-android",
-    "cordova-ios",
-    "cordova-plugin-tango"
-  ],
-  "author": "Tango Targeting",
-  "license": "Apache-2.0",
-  "engines": {
-    "cordovaDependencies": {
-      "2.0.0": {
-        "cordova": ">100"
-      }
-    }
+  "homepage": "https://github.com/tangotargeting/cordova-plugin-tango#readme",
+  "dependencies": {
+      "xmldoc": "1.1.0"
   }
 }
