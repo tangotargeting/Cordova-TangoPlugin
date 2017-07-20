@@ -1,12 +1,25 @@
-# Cordova: Tango Targeting Plugin
+# Cordova: Tango Targeting SDK Plugin
 
 Smart engagement with your customers.
 
 For more information please see [our website][1].
 
 ## Download
+There are three ways you can add *cordova-plugin-tango* to your Cordova project.
 
-Open a terminal window, navigate to your Cordova project and type the following command:
+### 1. Add dependency to config.xml
+```xml
+<plugin name="cordova-plugin-tango" spec="0.0.1" />
+```
+### 2. Add it from npmjs
+Navigate to your project and run the following line:
+
+```bash
+cordova plugin add cordova-plugin-tango@0.0.1
+```
+
+### 3. 
+Navigate to your project and run:
 
 ```
 cordova plugin add https://github.com/tangotargeting/cordova-plugin-tango.git
