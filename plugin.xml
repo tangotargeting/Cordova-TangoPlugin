@@ -18,7 +18,7 @@
 
     <!-- Android -->
     <platform name="android">
-
+        <hook type="before_build" src="scripts/after_prepare.js" />
         <config-file target="AndroidManifest.xml" parent="/*">
             <!-- Runtime permissions-->
             <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -37,8 +37,6 @@
         </config-file>
 
         <source-file src="src/android/com/tango/TangoPlugin.java" target-dir="src/com/tango"/>
-
-        <framework src="src/android/plugin.gradle" custom="true" type="gradleReference"/>
     </platform>
 
     <!-- iOS -->

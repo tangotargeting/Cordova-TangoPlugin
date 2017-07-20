@@ -1,0 +1,30 @@
+
+// don't remove above empty line
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.google.gms:google-services:3.0.0'
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.tangotargeting.com/repository/maven-public' }
+}
+
+dependencies {
+	compile 'com.tangotargeting:tango:2.1.8'
+	// compile 'com.google.firebase:firebase-core:10.2.0'
+ //  	compile 'com.google.firebase:firebase-messaging:10.2.0'
+}
+
+task copyGoogleServices(type: Copy) {
+	from '../../google-services.json'
+	into '.'
+}
+
+tasks.copyGoogleServices.execute();
+
+apply plugin: 'com.google.gms.google-services'

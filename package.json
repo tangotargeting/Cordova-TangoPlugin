@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tangotargeting/Cordova-TangoPlugin"
+    "url": "https://github.com/tangotargeting/cordova-plugin-tango"
   },
   "bugs": {
-    "url": "https://github.com/tangotargeting/Cordova-TangoPlugin/issues"
+    "url": "https://github.com/tangotargeting/cordova-plugin-tango/issues"
   },
   "keywords": [
     "cordova",
