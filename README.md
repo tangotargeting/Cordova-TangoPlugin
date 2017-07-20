@@ -47,7 +47,7 @@ Handling a custom action is as easy as extending `TangoPlugin` with the followin
 
 ```javascript
 window.TangoPlugin.onCustomAction = function(action){
-	// identify the action and do stuff
+    // identify the action and do stuff
 };
 ```
 
