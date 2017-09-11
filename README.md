@@ -80,6 +80,13 @@ You can add segments to a device to allow it to widen the pool of campaigns it c
 window.TangoPlugin.addSegments(["first-segment", "second-segment"]);
 ```
 
+
+## Troubleshooting
+
+1. If you completed the integration but don't receive any campaign, make sure you use the the API Key (see above how to find your API Key) and **NOT** the Public API Key.
+
+2. Sometimes, depending on the version of your Cordova Framework version or Cordova wrappers like Ionic or Phonegap, the configurations in **config.xml** may not be applied to the platforms/android/AndroidManifest.xml. To fix this you can use the **cordova-custom-config** plugin which will make sure the configurations will pe applied to their respective platforms.  
+
 ## License
 
 ```
