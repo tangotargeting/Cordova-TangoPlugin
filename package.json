@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-tango",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A Cordova plugin for Tango Targeting SDK",
   "cordova": {
     "id": "cordova-plugin-tango",

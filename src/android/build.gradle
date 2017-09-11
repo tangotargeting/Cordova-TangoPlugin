@@ -5,7 +5,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.google.gms:google-services:3.0.0'
+        classpath 'com.google.gms:google-services:3.1.0'
     }
 }
 
@@ -15,7 +15,16 @@ repositories {
 }
 
 dependencies {
-	compile 'com.tangotargeting:tango:2.1.8'
+	compile 'com.tangotargeting:tango:2.2.1'
+    
+    final FIREBASE_VERSION = '11.0.2'
+    final PLAY_SERVICES_VERSION = '11.0.2'
+
+    compile "com.google.firebase:firebase-core:$FIREBASE_VERSION"
+    compile "com.google.firebase:firebase-messaging:$FIREBASE_VERSION"
+    compile "com.google.android.gms:play-services-base:$PLAY_SERVICES_VERSION"
+    compile "com.google.android.gms:play-services-basement:$PLAY_SERVICES_VERSION"
+    compile "com.google.android.gms:play-services-location:$PLAY_SERVICES_VERSION"
 }
 
 task copyGoogleServices(type: Copy) {
