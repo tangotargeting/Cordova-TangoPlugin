@@ -19,11 +19,6 @@
     NSLog(@"Plugin addSegments method called!");
     [self.commandDelegate runInBackground:^{
         NSArray<NSString *> *segments = (NSArray<NSString *> *)command.arguments.firstObject;
-        
-//        NSMutableArray<NSString *> *segments = [[NSMutableArray alloc] initWithCapacity: command.arguments.count];
-//        for (NSString *segment in command.arguments) {
-//            [segments addObject:segment];
-//        }
         [Tango registerSegmentsWithSegments:segments];
     }];
 }
