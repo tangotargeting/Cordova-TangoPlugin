@@ -1,21 +1,21 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin
-        id="cordova-plugin-tango"
-        version="0.0.4"
-        xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        xmlns:android="http://schemas.android.com/apk/res/android">
-
+    id="cordova-plugin-tango"
+    version="0.0.4"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    
     <name>Tango Targeting Plugin</name>
     <description>A Cordova plugin for Tango Targeting SDK</description>
     <license>Apache License, Version 2.0</license>
     <keywords>tango,plugin,cordova</keywords>
-
+    
     <js-module name="TangoPlugin" src="www/TangoPlugin.js">
         <clobbers target="TangoPlugin"/>
     </js-module>
-
+    
     <dependency id="cordova-plugin-cocoapod-support"/>
-
+    
     <!-- Android -->
     <platform name="android">
         <hook type="before_build" src="scripts/before_build.js" />
@@ -23,22 +23,22 @@
             <!-- Runtime permissions-->
             <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-
+            
             <!--Normal permissions-->
             <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
             <uses-permission android:name="android.permission.INTERNET"/>
             <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
         </config-file>
-
+        
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="TangoPlugin">
                 <param name="android-package" value="com.tango.cordova.TangoPlugin"/>
             </feature>
         </config-file>
-
+        
         <source-file src="src/android/com/tango/TangoPlugin.java" target-dir="src/com/tango"/>
     </platform>
-
+    
     <!-- iOS -->
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
@@ -46,13 +46,17 @@
                 <param name="ios-package" value="TangoPlugin"/>
             </feature>
         </config-file>
-
-        <pods-config ios-min-version="9.0" use-frameworks="true"/>
-        <pod name="Tango"/>
-
+        
+        <pods-config ios-min-version="9.3" use-frameworks="true"/>
+        <pod name="Tango" version="~>1.0.11"/>
+        
         <source-file src="src/ios/AppDelegate+Tango.m"/>
         <source-file src="src/ios/TangoPlugin.m"/>
         <header-file src="src/ios/AppDelegate+Tango.h"/>
         <header-file src="src/ios/TangoPlugin.h"/>
+        
+        <hook type="before_build" src="scripts/fixEntitlementsBuildSetting.js"/>
+        <hook type="before_run" src="scripts/fixEntitlementsBuildSetting.js"/>
     </platform>
 </plugin>
+

@@ -1,4 +1,5 @@
 #import "TangoPlugin.h"
+#import <Tango/Tango-Swift.h>
 #import <Tango/Tango.h>
 
 @implementation TangoPlugin

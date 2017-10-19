@@ -4,6 +4,7 @@
 
 #import "AppDelegate+Tango.h"
 #import <objc/runtime.h>
+#import <Tango/Tango-Swift.h>
 #import <Tango/Tango.h>
 #import "TangoPlugin.h"
 #import <UserNotifications/UserNotifications.h>
