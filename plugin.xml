@@ -47,8 +47,8 @@
             </feature>
         </config-file>
         
-        <pods-config ios-min-version="9.3" use-frameworks="true"/>
-        <pod name="Tango" version="~>1.0.11"/>
+        <pods-config ios-min-version="10.3" use-frameworks="true"/>
+        <pod name="Tango" version="~>1.0.14"/>
         
         <source-file src="src/ios/AppDelegate+Tango.m"/>
         <source-file src="src/ios/TangoPlugin.m"/>
